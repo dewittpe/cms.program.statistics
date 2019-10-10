@@ -1,0 +1,20 @@
+Package: cms.program.statistics
+Title: Centers for Medicare and Medicaid Program Statistics
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Peter", "DeWitt", , "dewittpe@gmail.com", role = c("aut", "cre"))
+    )
+Description: Streamline data import and culling for the program statistics
+    ata provided by the Centers for Medicare and Medicaid.
+License: file LICENSE
+Encoding: UTF-8
+URL: https://github.com/dewittpe/cms.program.statistics
+LazyData: true
+Imports:
+    data.table,
+    rappdirs
+Suggests:
+    knitr,
+    rmarkdown
+RoxygenNote: 6.1.99.9001
+VignetteBuilder: knitr
