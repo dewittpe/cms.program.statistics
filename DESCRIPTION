@@ -10,11 +10,12 @@ License: file LICENSE
 Encoding: UTF-8
 URL: https://github.com/dewittpe/cms.program.statistics
 LazyData: true
+Depends:
+   R (>= 3.5.0)
 Imports:
-    data.table,
-    rappdirs
 Suggests:
     knitr,
+    readxl,
     rmarkdown
 RoxygenNote: 6.1.99.9001
 VignetteBuilder: knitr
