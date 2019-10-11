@@ -28,6 +28,8 @@ Filter(function(x) !all(is.na(x)), dplyr::filter(MDCR_ENROLL_AB_01, !grepl("20\\
 MDCR_ENROLL_AB_01 <- dplyr::filter(MDCR_ENROLL_AB_01,  grepl("20\\d\\d", Year))
 MDCR_ENROLL_AB_01 <- dplyr::mutate(MDCR_ENROLL_AB_01,  Year = as.integer(Year))
 
+lapply(MDCR_ENROLL_AB_01, tools::showNonASCII)
+
 cat("# Auto Generated. Do not edit by hand",
     "#' Total Medicare Enrollment:  Total, Original Medicare, and Medicare Advantage and Other Health Plan Enrollment",
     "#'",
@@ -62,19 +64,18 @@ MDCR_ENROLL_AB_02[[4]]$Year <- 2017L
 
 MDCR_ENROLL_AB_02 %<>%
   dplyr::bind_rows(.) %>%
+  dplyr::filter(`Area of Residence` != "BLANK") %>%
+  dplyr::mutate(`Area of Residence` = gsub("\\d$", "", `Area of Residence`)) %>%
+  dplyr::filter(`Area of Residence` %in% c("United States", state.name)) %>%
   dplyr::distinct(.) %>%
-  dplyr::filter(`Area of Residence` != "BLANK")
-
-MDCR_ENROLL_AB_02 %>%
-  dplyr::filter(is.na(`State Population 1`)) %>%
-  dplyr::select(`Area of Residence`)
-
-MDCR_ENROLL_AB_02 %<>%
   dplyr::rename(`State Population` = `State Population 1`)
 
-MDCR_ENROLL_AB_02$`Area of Residence` %<>% gsub("\\d$", "", .)
-
 MDCR_ENROLL_AB_02 %>% dplyr::filter(`Area of Residence` == "United States")
+
+lapply(MDCR_ENROLL_AB_02, tools::showNonASCII)
+
+MDCR_ENROLL_AB_02$`Total Enrollment Non-Core-Based Statistical Area` %<>% as.integer(.)
+MDCR_ENROLL_AB_02$`Total Enrollment Micropolitan Residence` %<>% as.integer(.)
 
 cat("# Auto Generated. Do not edit by hand",
     "#' Total Medicare Enrollment:  Total, Original Medicare, Medicare Advantage and Other Health Plan Enrollment, and Resident Population, by Area of Residence",
@@ -96,3 +97,4 @@ cat("# Auto Generated. Do not edit by hand",
 
 save(MDCR_ENROLL_AB_02, file = "../data/MDCR_ENROLL_AB_02.rda")
 # }}}
+
