@@ -9,9 +9,11 @@
 provider_taxonomy
 }
 \description{
-Important Notes:
+Provider Codes, last updated October 1, 2019 from https://data.cms.gov/Medicare-Enrollment/CROSSWALK-MEDICARE-PROVIDER-SUPPLIER-to-HEALTHCARE/j75i-rw8y
 }
 \details{
+Important Notes:
+
 Medicare no longer enrolls the provider type: Voluntary Health or Charitable Agency
 
 "Mass Immunizer Roster Biller" is an arrangement whereby immunization services are rendered by health care providers who are under contract to the entity/individual who is enrolled in Medicare as a Mass Immunization Roster Biller. The Healthcare Provider Taxonomy Code(s) would be that (those) of the health care provider(s) who render the immunization services.

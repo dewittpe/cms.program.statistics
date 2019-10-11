@@ -22,6 +22,8 @@ lapply(provider_taxonomy, grep, pattern = "\\[15\\]", value = TRUE)
 cat("# Generated Automatically: DO NOT EDIT",
     "#' Provider Taxonomy",
     "#'",
+    "#' Provider Codes, last updated October 1, 2019 from https://data.cms.gov/Medicare-Enrollment/CROSSWALK-MEDICARE-PROVIDER-SUPPLIER-to-HEALTHCARE/j75i-rw8y",
+    "#'",
     "#' Important Notes:",
     "#'",
     # 1
