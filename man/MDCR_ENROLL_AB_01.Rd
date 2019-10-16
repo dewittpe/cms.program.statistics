@@ -4,7 +4,7 @@
 \name{MDCR_ENROLL_AB_01}
 \alias{MDCR_ENROLL_AB_01}
 \title{Total Medicare Enrollment:  Total, Original Medicare, and Medicare Advantage and Other Health Plan Enrollment}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 10 rows and 9 columns.}
+\format{An object of class \code{data.frame} with 10 rows and 9 columns.}
 \usage{
 MDCR_ENROLL_AB_01
 }

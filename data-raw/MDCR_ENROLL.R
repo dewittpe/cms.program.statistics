@@ -41,7 +41,7 @@ cat("# Auto Generated. Do not edit by hand",
     "\"MDCR_ENROLL_AB_01\"",
     sep = "\n",
     file = "../R/MDCR_ENROLL_AB_01.R")
-
+MDCR_ENROLL_AB_01 %<>% as.data.frame
 save(MDCR_ENROLL_AB_01, file = "../data/MDCR_ENROLL_AB_01.rda")
 # }}}
 
@@ -95,6 +95,7 @@ cat("# Auto Generated. Do not edit by hand",
     sep = "\n",
     file = "../R/MDCR_ENROLL_AB_02.R")
 
+MDCR_ENROLL_AB_02 %<>% as.data.frame
 save(MDCR_ENROLL_AB_02, file = "../data/MDCR_ENROLL_AB_02.rda")
 # }}}
 
