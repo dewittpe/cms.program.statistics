@@ -14,8 +14,11 @@ Depends:
    R (>= 3.5.0)
 Imports:
 Suggests:
+    ggplot2,
     knitr,
+    magrittr,
     readxl,
+    reshape2,
     rmarkdown
 RoxygenNote: 6.1.99.9001
 VignetteBuilder: knitr

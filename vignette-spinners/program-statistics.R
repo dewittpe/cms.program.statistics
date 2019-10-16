@@ -23,7 +23,10 @@ options(qwraps2_markup = "markdown")
 #' you can view the code and verify the source data at
 #' https://github.com/dewittpe/cms.program.statistics.
 #'
-#' This vignette provides a summary of the data sets provided.
+#' This vignette provides a summary of the data sets provided.  Each of the
+#' data sets are provided as pure data.tables.  Many of the names for the
+#' columns of the data sets are not R syntactically valid names, that is, many
+#' of the names contain spaces.
 #'
 #' # Total Medicare Enrollment
 #'
@@ -46,8 +49,76 @@ knitr::kable(enrollment_data_sets)
 #'
 #' Total Medicare Enrollment:  Total, Original Medicare, and Medicare Advantage
 #' and Other Health Plan Enrollment
+#'
+#' Load the data set:
 data(MDCR_ENROLL_AB_01, package = "cms.program.statistics")
-str(MDCR_ENROLL_AB_01)
+
+#'
+#' This data set contains total enrollment data for the years
+{{ as.character(min(MDCR_ENROLL_AB_01$Year)) }}
+#' to
+{{ paste0(max(MDCR_ENROLL_AB_01$Year), ".") }}
+#'
+#' The provided enrollment information is:
+#+ results = "asis"
+cat(paste("*", names(MDCR_ENROLL_AB_01)), sep = "\n")
+
+#'
+#' The overall enrollment in Medicare can be seen in the following graphic.
+#+ label = "plot_MDCR_ENROLL_AB_01", echo = FALSE, results = "hide", fig.width = 7, fig.height = 7
+plot_enroll <-
+  reshape2::melt(MDCR_ENROLL_AB_01,
+                 id.vars = "Year",
+                 measure.vars = c("Total Enrollment",
+                                  "Total Original Medicare Enrollment",
+                                  "Total Medicare Advantage and Other Health Plan Enrollment"))
+
+levels(plot_enroll$variable)[grepl("^Total\\ Enrollment$", levels(plot_enroll$variable))] <- "Total"
+levels(plot_enroll$variable)[grepl("Original",             levels(plot_enroll$variable))] <- "Orignal Medicare"
+levels(plot_enroll$variable)[grepl("Medicare Advantage",   levels(plot_enroll$variable))] <- "Medicare Advantage and Other Health Plan"
+plot_enroll$facet <- "Total Enrollment"
+
+plot_percent_increase <-
+  reshape2::melt(MDCR_ENROLL_AB_01,
+                 id.vars = "Year",
+                 measure.vars = c("Total Enrollment Percentage Increase from Prior Year",
+                                  "Total Original Medicare Enrollment Percentage Increase from Prior Year",
+                                  "Total Medicare Advantage and Other Health Plan Enrollment Percentage Increase from Prior Year"))
+
+levels(plot_percent_increase$variable)[grepl("^Total\\ Enrollment", levels(plot_percent_increase$variable))] <- "Total"
+levels(plot_percent_increase$variable)[grepl("Original",            levels(plot_percent_increase$variable))] <- "Orignal Medicare"
+levels(plot_percent_increase$variable)[grepl("Medicare Advantage",  levels(plot_percent_increase$variable))] <- "Medicare Advantage and Other Health Plan"
+plot_percent_increase$facet <- "Percent Increase from Prior Year"
+
+plot_percent_of_total <-
+  reshape2::melt(MDCR_ENROLL_AB_01,
+                 id.vars = "Year",
+                 measure.vars = c("Total Original Medicare Percent of Total Enrollment",
+                                  "Total Medicare Advantage and Other Health Plan Enrollment Percent of Total Enrollment"))
+
+levels(plot_percent_of_total$variable)[grepl("Original",           levels(plot_percent_of_total$variable))] <- "Orignal Medicare"
+levels(plot_percent_of_total$variable)[grepl("Medicare Advantage", levels(plot_percent_of_total$variable))] <- "Medicare Advantage and Other Health Plan"
+plot_percent_of_total$facet <- "Percent of Total"
+
+plot_data <- rbind(plot_enroll, plot_percent_increase, plot_percent_of_total)
+plot_data$facet %<>% factor(levels = c("Total Enrollment", "Percent Increase from Prior Year", "Percent of Total"))
+
+ggplot2::ggplot(data = plot_data) +
+  ggplot2::aes(x = Year, y = value, color = variable) +
+  ggplot2::geom_line() +
+  ggplot2::geom_point() +
+  ggplot2::facet_wrap( ~ facet, scale = "free_y", ncol = 1) +
+  ggplot2::scale_x_continuous(breaks = MDCR_ENROLL_AB_01$Year) +
+  ggplot2::ylab("") +
+  ggplot2::theme(legend.position = "bottom",
+                 legend.title = ggplot2::element_blank())
+
+#'
+#' The full data set is relatively small and can be displayed in one table
+#' easily.
+#+ label = "table_MDCR_ENROLL_AB_01", echo = FALSE, results = "asis"
+knitr::kable(MDCR_ENROLL_AB_01)
+
 #'
 #' ## MDCR ENROLL AB 02
 #'
