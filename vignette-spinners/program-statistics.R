@@ -10,7 +10,6 @@
 #'---
 #'
 #+label='setup', include = FALSE, cache = FALSE
-library(magrittr)
 knitr::opts_chunk$set(collapse = TRUE, cache = FALSE)
 options(qwraps2_markup = "markdown")
 
@@ -27,6 +26,13 @@ options(qwraps2_markup = "markdown")
 #' data sets are provided as pure data.tables.  Many of the names for the
 #' columns of the data sets are not R syntactically valid names, that is, many
 #' of the names contain spaces.
+#'
+#' If you are going to reproduce the examples provided here you'll need to have
+#' two namespaces loaded
+#+ label = "namespaces", messages = FALSE
+library(magrittr)
+library(data.table)
+
 #'
 #' # Total Medicare Enrollment
 #'
@@ -122,7 +128,55 @@ knitr::kable(MDCR_ENROLL_AB_01)
 #'
 #' ## MDCR ENROLL AB 02
 #'
-#' Total Medicare Enrollment:  Total, Original Medicare, Medicare Advantage and Other Health Plan Enrollment, and Resident Population, by Area of Residence.
+#' Total Medicare Enrollment:  Total, Original Medicare, Medicare Advantage and
+#' Other Health Plan Enrollment, and Resident Population, by Area of Residence.
 #'
+# Load the data set.
 data(MDCR_ENROLL_AB_02, package = "cms.program.statistics")
-str(MDCR_ENROLL_AB_02)
+MDCR_ENROLL_AB_02 %<>% as.data.table
+
+#'
+#' The information provided in this dataset is
+#+ results = "asis"
+cat(paste("*", names(MDCR_ENROLL_AB_02)), sep = "\n")
+
+#'
+#' There are
+{{ length(unique(MDCR_ENROLL_AB_02[["Area of Residence"]])) }}
+#' unique values for Area of Residence.  These are each of the fifty States and
+#' the totals for the United States.
+#+ results = "asis"
+MDCR_ENROLL_AB_02[`Area of Residence` == "United States"] %>% knitr::kable(.)
+
+#+ results = "asis"
+MDCR_ENROLL_AB_02[`Area of Residence` == "Colorado"] %>% knitr::kable(.)
+
+#'
+#' # Provider Taxonomy
+#'
+#' Quoting from the [CMS
+#' webpage](https://www.cms.gov/Medicare/Provider-Enrollment-and-Certification/MedicareProviderSupEnroll/Taxonomy.html)
+#'
+#'>The Healthcare Provider Taxonomy Code Set is a hierarchical code set that consists of codes, descriptions, and definitions.  Healthcare Provider Taxonomy Codes are designed to categorize the type, classification, and/or specialization of health care providers.  The Code Set consists of two sections:  Individuals and Groups of Individuals, and Non-Individuals.  The Code Set is updated twice a year, effective April 1 and October 1.  The “Crosswalk – Medicare Provider/Supplier to Healthcare Provider Taxonomy” was updated because of changes made to the Healthcare Provider Taxonomy Code Set that will be implemented October 1, 2008.  That Code Set is available from the Washington Publishing Company. The Code Set is maintained by the National Uniform Claim Committee.  The Code Set is a Health Insurance Portability and Accountability (HIPAA) standard code set.  As such, it is the only code set that may be used in HIPAA standard transactions to report the type/classification/specialization of a health care provider when such reporting is required.
+#'>
+#'>When applying for a National Provider Identifier (NPI) from the National Plan and Provider Enumeration System (NPPES), a health care provider must select the Healthcare Provider Taxonomy Code or code description that the health care provider determines most closely describes the health care provider's type/classification/specialization, and report that code or code description in the NPI application.  In some situations, a health care provider might need to report more than one Healthcare Provider Taxonomy Code or code description in order to adequately describe the type/classification/specialization.  Therefore, a health care provider may select more than one Healthcare Provider Taxonomy Code or code description when applying for an NPI, but must indicate one of them as the primary.  The NPPES does not verify with the health care providers or with trusted sources that the Healthcare Provider Taxonomy Code or code description selections made by health care providers when applying for NPIs are accurate (e.g., the NPPES does not verify that an individual who reports a Physician Code is, in fact, a physician, or a physician with the reported specialization).  The NPPES does, however, validate that the Code and code description selections exist within the current version of the Healthcare Provider Taxonomy Code Set.
+#'>
+#'>The Healthcare Provider Taxonomy Codes and code descriptions that health care providers select when applying for NPIs may or may not be the same as the categorizations used by Medicare and other health plans in their enrollment and credentialing activities.  The Healthcare Provider Taxonomy Code or code description information collected by NPPES is used to help uniquely identify health care providers in order to assign them NPIs, not to ensure that they are credentialed or qualified to render health care.
+#'
+data(provider_taxonomy, package = "cms.program.statistics")
+
+#'
+#' there are several footnotes provided with the data.  These footnotes have
+#' been summarized in the Details section of the man file for the data set.
+#' Please read the man file.
+#+ eval = FALSE
+# /*
+if (!interactive()) {
+# */
+help("provider_taxonomy", package = "cms.program.statistics")
+# /*
+}
+# */
+
+#'
+str(provider_taxonomy, width = 80, strict.width = "cut")
