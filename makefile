@@ -39,6 +39,8 @@ install: $(PKG_NAME)_$(PKG_VERSION).tar.gz
 	R CMD INSTALL $(PKG_NAME)_$(PKG_VERSION).tar.gz
 
 clean:
+	if [ -e "$(PKG_ROOT)/data-raw/makefile" ]; then $(MAKE) -C $(PKG_ROOT)/data-raw/ clean; fi
+	if [ -e "$(PKG_ROOT)/vignette-spinners/makefile" ]; then $(MAKE) -C $(PKG_ROOT)/vignette-spinners/ clean; fi
 	$(RM) -f  $(PKG_NAME)_$(PKG_VERSION).tar.gz
 	$(RM) -rf $(PKG_NAME).Rcheck
 	$(RM) -f .document.Rout

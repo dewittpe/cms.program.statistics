@@ -5,3 +5,6 @@ all : $(TARGETS)
 
 %.Rout : %.R
 	R CMD BATCH --vanilla $<
+
+clean :
+	$(RM) -f *.Rout
