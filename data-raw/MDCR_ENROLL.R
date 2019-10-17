@@ -59,8 +59,8 @@ MDCR_ENROLL_AB_02 <- # {{{
 MDCR_ENROLL_AB_02[[1]]$Year <- 2013L
 MDCR_ENROLL_AB_02[[2]]$Year <- 2014L
 MDCR_ENROLL_AB_02[[3]]$Year <- 2015L
-MDCR_ENROLL_AB_02[[4]]$Year <- 2015L
-MDCR_ENROLL_AB_02[[4]]$Year <- 2017L
+MDCR_ENROLL_AB_02[[4]]$Year <- 2016L
+MDCR_ENROLL_AB_02[[5]]$Year <- 2017L
 
 MDCR_ENROLL_AB_02 %<>%
   dplyr::bind_rows(.) %>%
