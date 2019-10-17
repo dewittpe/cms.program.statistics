@@ -5,11 +5,15 @@ r:
   - release
   - devel
 
-before_install:
-  - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
-  - git lfs pull
+cache:
+  directories:
+    - .git/lfs
+
+git:
+  lfs_skip_smudge: true
 
 install:
+  - git lfs pull
   - Rscript -e 'install.packages("devtools", repos = "https://cran.rstudio.com")'
   - Rscript -e 'devtools::install_cran("qwraps2")'
   - Rscript -e 'devtools::install_cran("rmarkdown")'
