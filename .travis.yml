@@ -5,6 +5,9 @@ r:
   - release
   - devel
 
+before_install:
+  - git lfs pull
+
 install:
   - Rscript -e 'install.packages("devtools", repos = "https://cran.rstudio.com")'
   - Rscript -e 'devtools::install_cran("qwraps2")'
