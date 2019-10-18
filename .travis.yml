@@ -12,8 +12,11 @@ cache:
 git:
   lfs_skip_smudge: true
 
-install:
+before_install:
+  - echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
   - git lfs pull
+
+install:
   - Rscript -e 'install.packages("devtools", repos = "https://cran.rstudio.com")'
   - Rscript -e 'devtools::install_cran("qwraps2")'
   - Rscript -e 'devtools::install_cran("rmarkdown")'
