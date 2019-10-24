@@ -1,7 +1,7 @@
 # cms.program.statistics
 Tools for downloading and importing Centers for Medicare and Medicaid Program Statistics
 
-[![Build Status](https://travis-ci.com/dewittpe/cms.program.statistics.svg?branch=master)](https://travis-ci.com/dewittpe/cms.program.statistics.svg?branch=master)
+[![Build Status](https://travis-ci.com/dewittpe/cms.program.statistics.svg?branch=master)](https://travis-ci.com/dewittpe/cms.program.statistics)
 
 ## Source Data
 On the [github repo](https://github.com/dewittpe/cms.program.statistics) you
