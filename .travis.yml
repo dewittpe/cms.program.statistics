@@ -3,17 +3,13 @@ r:
 - oldrel
 - release
 - devel
-before_install:
-- git lfs install
-before_script:
-- git lfs pull
 install:
 - Rscript -e 'install.packages("devtools", repos = "https://cran.rstudio.com")'
-- Rscript -e 'devtools::install_cran("qwraps2")'
+- Rscript -e 'devtools::install_cran("data.table")'
+- Rscript -e 'devtools::install_cran("ggplot2")'
+- Rscript -e 'devtools::install_cran("knitr")'
+- Rscript -e 'devtools::install_cran("reshape2")'
 - Rscript -e 'devtools::install_cran("rmarkdown")'
-- Rscript -e 'devtools::install_cran("nycflights13")'
+- Rscript -e 'devtools::install_cran("qwraps2")'
 script:
 - make check
-env:
-  global:
-    secure: iLXa4DUs7Wi2Rvixlw8q6QtGvuYhBHi+ErlU31Ts4GEuK71DXiYoevDWI1WBWBJkd6sAuTLrEE04CPAIa1f5LMPh+GX6LzeHkCP6RIsfHuCuqiYPMWKESz5m9o/usggbn2csKBVPs5EJVE7TJ5PgJA2Cb8UmW+smYE5jKTMYtutzNazuDV8+MR64EUp9z/TYBe84Ya9mpijC+xrIYBOiMkRUJsJAbNpIeBir97CVv5VmxyGq5mbMnDfXIqCzLAtqjynn5hc0VRT2rspUFzsa7iLgyJGXOXb3NbLDtDtuM/v5dWEizAUJA3AUCxgVO0JC51076jcUHRtiCoPS7wvAqiLoKUSOcR6e1Ev1S/qnC3kowTaa1hjHGWgeerJRMdH8VUPSDf7TD+7TvTi2rmA83mN2Hp3k1NhAbiXZGzcHUQaV3XnNb6hs9lsIdUL14GlE9sCEeq9QK9eGS0ksyn8tBL+37dzVwuEe+K7dfWsPi0tr8BwlcD6pQbcqJlAFq611AcoCzouNjW9lacJtFcp+JXf/92gqCNsnfsZP1+nSwtvn4zEknnyyrv9BRjJ8wSvE8PFDgM1K5V/KIut2DqmAdbXJvhcy7kkrn5eiBqMsa+Mnl7OaJv4SSJjjEI10vETnfFoMEsqWe0LAWHhnJjqVl2QLjI5Ff7nkFIHXGQyLyj8=
