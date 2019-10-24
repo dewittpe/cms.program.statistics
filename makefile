@@ -44,4 +44,5 @@ clean:
 	$(RM) -f  $(PKG_NAME)_$(PKG_VERSION).tar.gz
 	$(RM) -rf $(PKG_NAME).Rcheck
 	$(RM) -f .document.Rout
+	R --vanilla --quiet -e "try(remove.packages('$(PKG_NAME)'), silent = TRUE)"
 

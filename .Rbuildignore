@@ -1,3 +1,6 @@
 ^\.document\.Rout$
 ^vignette-spinners/*
 ^\.travis\.yml
+^.*\.tar\.gz$
+^data-raw/*
+^makefile$
