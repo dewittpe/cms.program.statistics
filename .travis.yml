@@ -10,6 +10,7 @@ install:
 - Rscript -e 'devtools::install_cran("ggplot2")'
 - Rscript -e 'devtools::install_cran("knitr")'
 - Rscript -e 'devtools::install_cran("magrittr")'
+- Rscript -e 'devtools::install_cran("readr")'
 - Rscript -e 'devtools::install_cran("readxl")'
 - Rscript -e 'devtools::install_cran("reshape2")'
 - Rscript -e 'devtools::install_cran("rmarkdown")'
