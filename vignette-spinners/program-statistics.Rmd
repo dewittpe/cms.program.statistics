@@ -175,6 +175,28 @@ MDCR_ENROLL_AB_02[`Area of Residence` == "Colorado"] %>% knitr::kable(.)
 ```
 
 
+## MDCR ENROLL AB 03
+
+Total Medicare Enrollment:  Part A and/or Part B Total, Aged, and Disabled
+Enrollees
+
+
+```{r }
+# Load the data set.
+data(MDCR_ENROLL_AB_03, package = "cms.program.statistics")
+MDCR_ENROLL_AB_03 %<>% as.data.table
+```
+
+
+The information provided in this dataset is
+
+```{r results = "asis"}
+cat(paste("*", names(MDCR_ENROLL_AB_03)), sep = "\n")
+```
+
+
+
+
 # Provider Taxonomy
 
 Quoting from the [CMS

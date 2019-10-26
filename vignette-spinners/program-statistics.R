@@ -51,6 +51,7 @@ enrollment_data_sets[, "Item"] %<>% paste0("[", ., "](#", tolower(gsub("_", "-",
 knitr::kable(enrollment_data_sets)
 
 #'
+# /* MDCR ENROLL AB 01 {{{ */
 #' ## MDCR ENROLL AB 01
 #'
 #' Total Medicare Enrollment:  Total, Original Medicare, and Medicare Advantage
@@ -125,7 +126,9 @@ ggplot2::ggplot(data = plot_data) +
 #+ label = "table_MDCR_ENROLL_AB_01", echo = FALSE, results = "asis"
 knitr::kable(MDCR_ENROLL_AB_01)
 
+# /* End of MDCR ENROLL AB 01 }}} */
 #'
+# /* MDCR ENROLL AB 02 {{{ */
 #' ## MDCR ENROLL AB 02
 #'
 #' Total Medicare Enrollment:  Total, Original Medicare, Medicare Advantage and
@@ -151,6 +154,27 @@ MDCR_ENROLL_AB_02[`Area of Residence` == "United States"] %>% knitr::kable(.)
 #+ results = "asis"
 MDCR_ENROLL_AB_02[`Area of Residence` == "Colorado"] %>% knitr::kable(.)
 
+# /* End of MDCR ENROLL AB 02 }}} */
+#'
+# /* MDCR ENROLL AB 03 {{{ */
+#' ## MDCR ENROLL AB 03
+#'
+#' Total Medicare Enrollment:  Part A and/or Part B Total, Aged, and Disabled
+#' Enrollees
+#'
+# Load the data set.
+data(MDCR_ENROLL_AB_03, package = "cms.program.statistics")
+MDCR_ENROLL_AB_03 %<>% as.data.table
+
+#'
+#' The information provided in this dataset is
+#+ results = "asis"
+cat(paste("*", names(MDCR_ENROLL_AB_03)), sep = "\n")
+
+# /* End of MDCR ENROLL AB 02 }}} */
+#'
+#'
+# /* Provider Taxonomy {{{ */
 #'
 #' # Provider Taxonomy
 #'
@@ -180,3 +204,5 @@ help("provider_taxonomy", package = "cms.program.statistics")
 
 #'
 str(provider_taxonomy, width = 80, strict.width = "cut")
+
+# /* End of Provider Taxonomy }}} */

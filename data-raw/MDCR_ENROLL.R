@@ -31,6 +31,8 @@ MDCR_ENROLL_AB_01 <- dplyr::mutate(MDCR_ENROLL_AB_01,  Year = as.integer(Year))
 lapply(MDCR_ENROLL_AB_01, tools::showNonASCII)
 
 cat("# Auto Generated. Do not edit by hand",
+    "#' MDCR ENROLL AB 01",
+    "#'",
     "#' Total Medicare Enrollment:  Total, Original Medicare, and Medicare Advantage and Other Health Plan Enrollment",
     "#'",
     "#' NOTES:  The enrollment counts are determined using a person-year methodology.  Numbers and percentages may not add to totals because of rounding.",
@@ -78,6 +80,8 @@ MDCR_ENROLL_AB_02$`Total Enrollment Non-Core-Based Statistical Area` %<>% as.int
 MDCR_ENROLL_AB_02$`Total Enrollment Micropolitan Residence` %<>% as.integer(.)
 
 cat("# Auto Generated. Do not edit by hand",
+    "#' MDCR ENROLL AB 02",
+    "#'",
     "#' Total Medicare Enrollment:  Total, Original Medicare, Medicare Advantage and Other Health Plan Enrollment, and Resident Population, by Area of Residence",
     "#'",
     "#' Counts between 1 and 10 have been suppressed because of CMS rules to protect the privacy of beneficiaries.",
@@ -97,5 +101,41 @@ cat("# Auto Generated. Do not edit by hand",
 
 MDCR_ENROLL_AB_02 %<>% as.data.frame
 save(MDCR_ENROLL_AB_02, file = "../data/MDCR_ENROLL_AB_02.rda")
+# }}}
+
+MDCR_ENROLL_AB_03 <- #{{{
+  lapply(
+         c(paste0(tmpdir, "/2013/CPS_MDCR_ENROLL_AB_3.xlsx"),
+           paste0(tmpdir, "/2014/CPS_MDCR_ENROLL_AB_3.xlsx"),
+           paste0(tmpdir, "/2015/CPS_MDCR_ENROLL_AB_3.xlsx"),
+           paste0(tmpdir, "/2016/CPS_MDCR_ENROLL_AB_3.xlsx"),
+           paste0(tmpdir, "/2017/CPS_MDCR_ENROLL_AB_3.xlsx"))
+         ,
+         readxl::read_excel,
+         skip = 2)
+
+MDCR_ENROLL_AB_03 %<>%
+  dplyr::bind_rows(.) %>%
+  dplyr::distinct(.) %>%
+  dplyr::filter(Year %in% as.character(2008:2017)) %>%
+  dplyr::mutate(Year = as.integer(Year))
+
+cat("# Auto Generated. Do not edit by hand",
+    "#' MDCR ENROLL AB 03",
+    "#'",
+    "#' Total Medicare Enrollment:  Part A and/or Part B Total, Aged, and Disabled Enrollees",
+    "#'",
+    "#' NOTES:  The enrollment counts are determined  using a person-year methodology.  Numbers and percentages may not add to totals because of",
+    "#' rounding.  For definitions of \"Metropolitan\", \"Micropolitan\", and \"Non-Core-Based Statistical Area\", refer to CPS Glossary.",
+    "#'",
+    "#' SOURCES:  Centers for Medicare & Medicaid Services, Office of Enterprise Data and Analytics, Chronic Conditions Data Warehouse; United States Census Bureau.",
+    "#'",
+    "\"MDCR_ENROLL_AB_03\"",
+    sep = "\n",
+    file = "../R/MDCR_ENROLL_AB_03.R")
+
+MDCR_ENROLL_AB_03 %<>% as.data.frame
+save(MDCR_ENROLL_AB_03, file = "../data/MDCR_ENROLL_AB_03.rda")
+
 # }}}
 
