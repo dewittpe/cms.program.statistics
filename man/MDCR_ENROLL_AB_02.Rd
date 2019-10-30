@@ -3,8 +3,11 @@
 \docType{data}
 \name{MDCR_ENROLL_AB_02}
 \alias{MDCR_ENROLL_AB_02}
-\title{MDCR ENROLL AB 02}
+\title{Total Medicare Enrollment:  Total, Original Medicare, Medicare Advantage and Other Health Plan Enrollment, and Resident Population, by Area of Residence}
 \format{An object of class \code{data.frame} with 255 rows and 12 columns.}
+\source{
+Centers for Medicare & Medicaid Services, Office of Enterprise Data and Analytics, Chronic Conditions Data Warehouse; United States Census Bureau.
+}
 \usage{
 MDCR_ENROLL_AB_02
 }
@@ -20,7 +23,5 @@ Total United States and state population estimates are available on the U.S. Cen
 
 NOTES:  The enrollment counts are determined  using a person-year methodology.  Numbers and percentages may not add to totals because of
 rounding.  For definitions of "Metropolitan", "Micropolitan", and "Non-Core-Based Statistical Area", refer to CPS Glossary.
-
-SOURCES:  Centers for Medicare & Medicaid Services, Office of Enterprise Data and Analytics, Chronic Conditions Data Warehouse; United States Census Bureau.
 }
 \keyword{datasets}

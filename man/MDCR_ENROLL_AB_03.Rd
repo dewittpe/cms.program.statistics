@@ -3,8 +3,11 @@
 \docType{data}
 \name{MDCR_ENROLL_AB_03}
 \alias{MDCR_ENROLL_AB_03}
-\title{MDCR ENROLL AB 03}
+\title{Total Medicare Enrollment:  Part A and/or Part B Total, Aged, and Disabled Enrollees}
 \format{An object of class \code{data.frame} with 10 rows and 13 columns.}
+\source{
+Centers for Medicare & Medicaid Services, Office of Enterprise Data and Analytics, Chronic Conditions Data Warehouse; United States Census Bureau.
+}
 \usage{
 MDCR_ENROLL_AB_03
 }
@@ -14,7 +17,5 @@ Total Medicare Enrollment:  Part A and/or Part B Total, Aged, and Disabled Enrol
 \details{
 NOTES:  The enrollment counts are determined  using a person-year methodology.  Numbers and percentages may not add to totals because of
 rounding.  For definitions of "Metropolitan", "Micropolitan", and "Non-Core-Based Statistical Area", refer to CPS Glossary.
-
-SOURCES:  Centers for Medicare & Medicaid Services, Office of Enterprise Data and Analytics, Chronic Conditions Data Warehouse; United States Census Bureau.
 }
 \keyword{datasets}

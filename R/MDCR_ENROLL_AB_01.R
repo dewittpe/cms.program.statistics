@@ -1,11 +1,11 @@
 # Auto Generated. Do not edit by hand
-#' MDCR ENROLL AB 01
+#' Total Medicare Enrollment:  Total, Original Medicare, and Medicare Advantage and Other Health Plan Enrollment
 #'
 #' Total Medicare Enrollment:  Total, Original Medicare, and Medicare Advantage and Other Health Plan Enrollment
 #'
 #' NOTES:  The enrollment counts are determined using a person-year methodology.  Numbers and percentages may not add to totals because of rounding.
 #'
-#' SOURCE:  Centers for Medicare & Medicaid Services, Office of Enterprise Data and Analytics, CMS Chronic Conditions Data Warehouse.
+#' @source  Centers for Medicare & Medicaid Services, Office of Enterprise Data and Analytics, CMS Chronic Conditions Data Warehouse.
 #'
 #'
 "MDCR_ENROLL_AB_01"
