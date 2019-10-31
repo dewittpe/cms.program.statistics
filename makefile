@@ -30,7 +30,7 @@ all: $(PKG_NAME)_$(PKG_VERSION).tar.gz
 	if [ -e "$(PKG_ROOT)/vignette-spinners/makefile" ]; then $(MAKE) -C $(PKG_ROOT)/vignette-spinners/; else echo "Nothing to do"; fi
 
 $(PKG_NAME)_$(PKG_VERSION).tar.gz: .document.Rout $(TESTS) $(PKG_ROOT)/DESCRIPTION
-	R CMD build --no-resave-data --md5 $(build-options) $(PKG_ROOT)
+	R CMD build --md5 $(build-options) $(PKG_ROOT)
 
 check: $(PKG_NAME)_$(PKG_VERSION).tar.gz
 	R CMD check $(PKG_NAME)_$(PKG_VERSION).tar.gz
