@@ -1,16 +1,6 @@
 # Total Medicare Enrollment:  Total, Original Medicare, and Medicare Advantage and Other Health Plan Enrollment
 library(magrittr)
 
-# Helper Functions
-#
-# name_repair: used to create simple names for the columns when reading in data
-# from .xlsx files.  The names are not important, and are not used.  This really
-# just an easy way to suppress messages from readxl::read_excel without just
-# ignoring the messages.
-name_repair <- function(nms) {
-  paste0("V", seq(1, length(nms)))
-}
-
 # Get a temporary directory to extract zip files to.
 tmpdir <- tempdir()
 
@@ -203,7 +193,7 @@ MDCR_ENROLL_AB_05[[3]]$Year <- 2015L
 MDCR_ENROLL_AB_05[[4]]$Year <- 2016L
 MDCR_ENROLL_AB_05[[5]]$Year <- 2017L
 
-MDCR_ENROLL_AB_05 %>%
+MDCR_ENROLL_AB_05 %<>%
   dplyr::bind_rows(.) %>%
   dplyr::distinct(.) %>%
   tibble::add_column(., "Demographic Group" = .$`Demographic Characteristic`, .before = 1) %>%
@@ -229,6 +219,55 @@ cat("# Auto Generated. Do not edit by hand",
 
 MDCR_ENROLL_AB_05 %<>% as.data.frame
 save(MDCR_ENROLL_AB_05, file = "../data/MDCR_ENROLL_AB_05.rda")
+# }}}
+
+MDCR_ENROLL_AB_06 <- #{{{
+  lapply(
+         c(paste0(tmpdir, "/2013/CPS_MDCR_ENROLL_AB_6.xlsx"),
+           paste0(tmpdir, "/2014/CPS_MDCR_ENROLL_AB_6.xlsx"),
+           paste0(tmpdir, "/2015/CPS_MDCR_ENROLL_AB_6.xlsx"),
+           paste0(tmpdir, "/2016/CPS_MDCR_ENROLL_AB_6.xlsx"),
+           paste0(tmpdir, "/2017/CPS_MDCR_ENROLL_AB_6.xlsx"))
+         ,
+         readxl::read_excel,
+         skip = 3,
+         col_type = "text"
+  )
+
+MDCR_ENROLL_AB_06[[1]]$Year <- 2013L
+MDCR_ENROLL_AB_06[[2]]$Year <- 2014L
+MDCR_ENROLL_AB_06[[3]]$Year <- 2015L
+MDCR_ENROLL_AB_06[[4]]$Year <- 2016L
+MDCR_ENROLL_AB_06[[5]]$Year <- 2017L
+
+MDCR_ENROLL_AB_06 %<>%
+  dplyr::bind_rows(.) %>%
+  dplyr::distinct(.) %>%
+  tibble::add_column(., "Demographic Group" = .$`Demographic Characteristic`, .before = 1) %>%
+  dplyr::mutate(`Demographic Group` = dplyr::if_else(grepl("(Y|y)ears", `Demographic Group`), "Age", `Demographic Group`),
+                `Demographic Group` = dplyr::if_else(grepl("^((Female)|(Male))$", `Demographic Group`), "Sex", `Demographic Group`),
+                `Demographic Group` = dplyr::if_else(grepl("^((Non-Hispanic White)|(Black \\(or African-American\\))|(Asian\\/Pacific Islander)|(Hispanic)|(American Indian/Alaska Native)|(Other)|(Unknown))$", `Demographic Group`), "Race", `Demographic Group`)
+                ) %>%
+  dplyr::filter(!is.na(`Total Medicare Enrollees`)) %>%
+  dplyr::mutate_at(dplyr::vars(-Year, -`Demographic Group`, -`Demographic Characteristic`),
+                   ~ suppressWarnings(as.numeric(.)))
+
+
+cat("# Auto Generated. Do not edit by hand",
+    "#' Total Medicare Enrollment:  Part A and/or Part B Enrollees, by Type of Entitlement and Demographic Characteristics",
+    "#'",
+    "#' Total Medicare Enrollment:  Part A and/or Part B Enrollees, by Type of Entitlement and Demographic Characteristics",
+    "#'",
+    "#' NOTES:  The enrollment counts are determined using a person-year methodology.  Numbers and percentages may not add to totals because of rounding.",
+    "#'",
+    "#' @source Centers for Medicare & Medicaid Services, Office of Enterprise Data and Analytics, CMS Chronic Conditions Data Warehouse.",
+    "#'",
+    "\"MDCR_ENROLL_AB_06\"",
+    sep = "\n",
+    file = "../R/MDCR_ENROLL_AB_06.R")
+
+MDCR_ENROLL_AB_06 %<>% as.data.frame
+save(MDCR_ENROLL_AB_06, file = "../data/MDCR_ENROLL_AB_06.rda")
 # }}}
 
 
