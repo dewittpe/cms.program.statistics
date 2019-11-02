@@ -1,23 +1,23 @@
 library(magrittr)
 
-provider_taxonomy <- readr::read_csv("MDCR_PROVIDER_TAXONOMY.csv")
-attr(provider_taxonomy, "spec") <- NULL
+PROVIDER_TAXONOMY <- readr::read_csv("MDCR_PROVIDER_TAXONOMY.csv")
+attr(PROVIDER_TAXONOMY, "spec") <- NULL
 
-lapply(provider_taxonomy, grep, pattern = "\\[1\\]", value = TRUE)
-lapply(provider_taxonomy, grep, pattern = "\\[2\\]", value = TRUE)
-lapply(provider_taxonomy, grep, pattern = "\\[3\\]", value = TRUE)
-lapply(provider_taxonomy, grep, pattern = "\\[4\\]", value = TRUE)
-lapply(provider_taxonomy, grep, pattern = "\\[5\\]", value = TRUE)
-lapply(provider_taxonomy, grep, pattern = "\\[6\\]", value = TRUE)
-lapply(provider_taxonomy, grep, pattern = "\\[7\\]", value = TRUE)
-lapply(provider_taxonomy, grep, pattern = "\\[8\\]", value = TRUE)
-lapply(provider_taxonomy, grep, pattern = "\\[9\\]", value = TRUE)
-lapply(provider_taxonomy, grep, pattern = "\\[10\\]", value = TRUE)
-lapply(provider_taxonomy, grep, pattern = "\\[11\\]", value = TRUE)
-lapply(provider_taxonomy, grep, pattern = "\\[12\\]", value = TRUE)
-lapply(provider_taxonomy, grep, pattern = "\\[13\\]", value = TRUE)
-lapply(provider_taxonomy, grep, pattern = "\\[14\\]", value = TRUE)
-lapply(provider_taxonomy, grep, pattern = "\\[15\\]", value = TRUE)
+lapply(PROVIDER_TAXONOMY, grep, pattern = "\\[1\\]", value = TRUE)
+lapply(PROVIDER_TAXONOMY, grep, pattern = "\\[2\\]", value = TRUE)
+lapply(PROVIDER_TAXONOMY, grep, pattern = "\\[3\\]", value = TRUE)
+lapply(PROVIDER_TAXONOMY, grep, pattern = "\\[4\\]", value = TRUE)
+lapply(PROVIDER_TAXONOMY, grep, pattern = "\\[5\\]", value = TRUE)
+lapply(PROVIDER_TAXONOMY, grep, pattern = "\\[6\\]", value = TRUE)
+lapply(PROVIDER_TAXONOMY, grep, pattern = "\\[7\\]", value = TRUE)
+lapply(PROVIDER_TAXONOMY, grep, pattern = "\\[8\\]", value = TRUE)
+lapply(PROVIDER_TAXONOMY, grep, pattern = "\\[9\\]", value = TRUE)
+lapply(PROVIDER_TAXONOMY, grep, pattern = "\\[10\\]", value = TRUE)
+lapply(PROVIDER_TAXONOMY, grep, pattern = "\\[11\\]", value = TRUE)
+lapply(PROVIDER_TAXONOMY, grep, pattern = "\\[12\\]", value = TRUE)
+lapply(PROVIDER_TAXONOMY, grep, pattern = "\\[13\\]", value = TRUE)
+lapply(PROVIDER_TAXONOMY, grep, pattern = "\\[14\\]", value = TRUE)
+lapply(PROVIDER_TAXONOMY, grep, pattern = "\\[15\\]", value = TRUE)
 
 cat("# Generated Automatically: DO NOT EDIT",
     "#' Provider Taxonomy",
@@ -68,34 +68,34 @@ cat("# Generated Automatically: DO NOT EDIT",
     # 14
     "#' RE: \"B4\": Does not meet the definition of \"health care provider\" at 45 CFR 160.103; is not eligible for an NPI.",
     "#'",
-    "\"provider_taxonomy\"",
+    "\"PROVIDER_TAXONOMY\"",
     sep = "\n",
-    file = "../R/provider_taxonomy.R")
+    file = "../R/PROVIDER_TAXONOMY.R")
 
 # clean up
-provider_taxonomy %<>% dplyr::filter(!grepl("^\\[1\\]", `MEDICARE SPECIALTY CODE`))
-provider_taxonomy %<>% dplyr::filter(!grepl("^\\[2\\]", `MEDICARE SPECIALTY CODE`))
-provider_taxonomy %<>% dplyr::filter(!grepl("^\\[3\\]", `MEDICARE SPECIALTY CODE`))
-provider_taxonomy %<>% dplyr::filter(!grepl("^\\[4\\]", `MEDICARE SPECIALTY CODE`))
-provider_taxonomy %<>% dplyr::filter(!grepl("^\\[5\\]", `MEDICARE SPECIALTY CODE`))
-provider_taxonomy %<>% dplyr::filter(!grepl("^\\[6\\]", `MEDICARE SPECIALTY CODE`))
-provider_taxonomy %<>% dplyr::filter(!grepl("^\\[7\\]", `MEDICARE SPECIALTY CODE`))
-provider_taxonomy %<>% dplyr::filter(!grepl("^\\[8\\]", `MEDICARE SPECIALTY CODE`))
-provider_taxonomy %<>% dplyr::filter(!grepl("^\\[9\\]", `MEDICARE SPECIALTY CODE`))
-provider_taxonomy %<>% dplyr::filter(!grepl("^\\[10\\]", `MEDICARE SPECIALTY CODE`))
-provider_taxonomy %<>% dplyr::filter(!grepl("^\\[11\\]", `MEDICARE SPECIALTY CODE`))
-provider_taxonomy %<>% dplyr::filter(!grepl("^\\[12\\]", `MEDICARE SPECIALTY CODE`))
-provider_taxonomy %<>% dplyr::filter(!grepl("^\\[13\\]", `MEDICARE SPECIALTY CODE`))
-provider_taxonomy %<>% dplyr::filter(!grepl("^\\[14\\]", `MEDICARE SPECIALTY CODE`))
+PROVIDER_TAXONOMY %<>% dplyr::filter(!grepl("^\\[1\\]", `MEDICARE SPECIALTY CODE`))
+PROVIDER_TAXONOMY %<>% dplyr::filter(!grepl("^\\[2\\]", `MEDICARE SPECIALTY CODE`))
+PROVIDER_TAXONOMY %<>% dplyr::filter(!grepl("^\\[3\\]", `MEDICARE SPECIALTY CODE`))
+PROVIDER_TAXONOMY %<>% dplyr::filter(!grepl("^\\[4\\]", `MEDICARE SPECIALTY CODE`))
+PROVIDER_TAXONOMY %<>% dplyr::filter(!grepl("^\\[5\\]", `MEDICARE SPECIALTY CODE`))
+PROVIDER_TAXONOMY %<>% dplyr::filter(!grepl("^\\[6\\]", `MEDICARE SPECIALTY CODE`))
+PROVIDER_TAXONOMY %<>% dplyr::filter(!grepl("^\\[7\\]", `MEDICARE SPECIALTY CODE`))
+PROVIDER_TAXONOMY %<>% dplyr::filter(!grepl("^\\[8\\]", `MEDICARE SPECIALTY CODE`))
+PROVIDER_TAXONOMY %<>% dplyr::filter(!grepl("^\\[9\\]", `MEDICARE SPECIALTY CODE`))
+PROVIDER_TAXONOMY %<>% dplyr::filter(!grepl("^\\[10\\]", `MEDICARE SPECIALTY CODE`))
+PROVIDER_TAXONOMY %<>% dplyr::filter(!grepl("^\\[11\\]", `MEDICARE SPECIALTY CODE`))
+PROVIDER_TAXONOMY %<>% dplyr::filter(!grepl("^\\[12\\]", `MEDICARE SPECIALTY CODE`))
+PROVIDER_TAXONOMY %<>% dplyr::filter(!grepl("^\\[13\\]", `MEDICARE SPECIALTY CODE`))
+PROVIDER_TAXONOMY %<>% dplyr::filter(!grepl("^\\[14\\]", `MEDICARE SPECIALTY CODE`))
 
-provider_taxonomy[["MEDICARE PROVIDER/SUPPLIER TYPE DESCRIPTION"]] %<>%
+PROVIDER_TAXONOMY[["MEDICARE PROVIDER/SUPPLIER TYPE DESCRIPTION"]] %<>%
   sub("\\[1\\]", "", .) %>%
   sub("\\[2\\]", "", .) %>%
   sub("\\[4\\]", "", .) %>%
   sub("\\[6\\]", "", .) %>%
   sub("\\[13\\]", "", .)
 
-provider_taxonomy[["MEDICARE SPECIALTY CODE"]] %<>%
+PROVIDER_TAXONOMY[["MEDICARE SPECIALTY CODE"]] %<>%
   sub("\\[3\\]", "", .) %>%
   sub("\\[5\\]", "", .) %>%
   sub("\\[7\\]", "", .) %>%
@@ -107,25 +107,25 @@ provider_taxonomy[["MEDICARE SPECIALTY CODE"]] %<>%
   sub("\\[14\\]", "", .)
 
 # Checks
-provider_taxonomy %$% unique(`MEDICARE SPECIALTY CODE`)
-provider_taxonomy %$% unique(`MEDICARE PROVIDER/SUPPLIER TYPE DESCRIPTION`)
-provider_taxonomy %$% unique(`PROVIDER TAXONOMY CODE`)
-provider_taxonomy %$% unique(`PROVIDER TAXONOMY DESCRIPTION`)
+PROVIDER_TAXONOMY %$% unique(`MEDICARE SPECIALTY CODE`)
+PROVIDER_TAXONOMY %$% unique(`MEDICARE PROVIDER/SUPPLIER TYPE DESCRIPTION`)
+PROVIDER_TAXONOMY %$% unique(`PROVIDER TAXONOMY CODE`)
+PROVIDER_TAXONOMY %$% unique(`PROVIDER TAXONOMY DESCRIPTION`)
 
-tools::showNonASCII(provider_taxonomy[[1]])
+tools::showNonASCII(PROVIDER_TAXONOMY[[1]])
 
-tools::showNonASCII(provider_taxonomy[[2]])
-provider_taxonomy[[2]][448] %<>% iconv(to = "ASCII//TRANSLIT")
+tools::showNonASCII(PROVIDER_TAXONOMY[[2]])
+PROVIDER_TAXONOMY[[2]][448] %<>% iconv(to = "ASCII//TRANSLIT")
 
-tools::showNonASCII(provider_taxonomy[[3]])
+tools::showNonASCII(PROVIDER_TAXONOMY[[3]])
 
-tools::showNonASCII(provider_taxonomy[[4]])
-provider_taxonomy[[4]][194] %<>% iconv(to = "ASCII//TRANSLIT")
-provider_taxonomy[[4]][258] %<>% iconv(to = "ASCII//TRANSLIT")
-provider_taxonomy[[4]][426] %<>% iconv(to = "ASCII//TRANSLIT")
+tools::showNonASCII(PROVIDER_TAXONOMY[[4]])
+PROVIDER_TAXONOMY[[4]][194] %<>% iconv(to = "ASCII//TRANSLIT")
+PROVIDER_TAXONOMY[[4]][258] %<>% iconv(to = "ASCII//TRANSLIT")
+PROVIDER_TAXONOMY[[4]][426] %<>% iconv(to = "ASCII//TRANSLIT")
 
-provider_taxonomy %<>% as.data.frame
-head(provider_taxonomy)
+PROVIDER_TAXONOMY %<>% as.data.frame
+head(PROVIDER_TAXONOMY)
 
 # save
-save(provider_taxonomy, file = "../data/provider_taxonomy.rda")
+save(PROVIDER_TAXONOMY, file = "../data/PROVIDER_TAXONOMY.rda")
