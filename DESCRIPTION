@@ -15,11 +15,16 @@ Depends:
 Imports:
 Suggests:
     data.table,
+    dplyr,
     ggplot2,
     knitr,
     magrittr,
+    readr,
     readxl,
     reshape2,
-    rmarkdown
+    rmarkdown,
+    rvest,
+    tibble,
+    xml2
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
