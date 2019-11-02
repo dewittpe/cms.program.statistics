@@ -210,7 +210,7 @@ webpage](https://www.cms.gov/Medicare/Provider-Enrollment-and-Certification/Medi
 
 
 ```{r }
-data(provider_taxonomy, package = "cms.program.statistics")
+data(PROVIDER_TAXONOMY, package = "cms.program.statistics")
 ```
 
 
@@ -219,12 +219,12 @@ been summarized in the Details section of the man file for the data set.
 Please read the man file.
 
 ```{r eval = FALSE}
-help("provider_taxonomy", package = "cms.program.statistics")
+help("PROVIDER_TAXONOMY", package = "cms.program.statistics")
 ```
 
 
 
 ```{r }
-str(provider_taxonomy, width = 80, strict.width = "cut")
+str(PROVIDER_TAXONOMY, width = 80, strict.width = "cut")
 ```
 

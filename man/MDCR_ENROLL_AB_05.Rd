@@ -4,7 +4,7 @@
 \name{MDCR_ENROLL_AB_05}
 \alias{MDCR_ENROLL_AB_05}
 \title{Total Medicare Enrollment:  Part A and/or Part B Enrollees, by Demographic Characteristic}
-\format{An object of class \code{data.frame} with 36 rows and 30 columns.}
+\format{An object of class \code{data.frame} with 110 rows and 7 columns.}
 \source{
 Centers for Medicare & Medicaid Services, Office of Enterprise Data and Analytics, CMS Chronic Conditions Data Warehouse.
 }
