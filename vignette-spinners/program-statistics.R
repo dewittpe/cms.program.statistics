@@ -171,8 +171,66 @@ MDCR_ENROLL_AB_03 %<>% as.data.table
 #+ results = "asis"
 cat(paste("*", names(MDCR_ENROLL_AB_03)), sep = "\n")
 
-# /* End of MDCR ENROLL AB 02 }}} */
+# /* End of MDCR ENROLL AB 03 }}} */
 #'
+# /* MDCR ENROLL AB 04 {{{ */
+#'
+#' ## MDCR ENROLL AB 04
+#'
+#' Total Medicare Enrollment: Part A and/or Part B Enrollees, by Age Group
+#'
+data(MDCR_ENROLL_AB_04, package = "cms.program.statistics")
+str(MDCR_ENROLL_AB_04)
+
+# /* End of MDCR ENROOL AB 04 }}} */
+#'
+# /* MDCR ENROLL AB 05 {{{ */
+#'
+#' ## MDCR ENROLL AB 05
+#'
+#' Total Medicare Enrollment: Total Medicare Enrollment: Part A and/or Part B
+#' Enrollment by Demographic Caharacteristics
+#'
+data(MDCR_ENROLL_AB_05, package = "cms.program.statistics")
+str(MDCR_ENROLL_AB_05)
+
+# /* End of MDCR ENROOL AB 05 }}} */
+#'
+# /* MDCR ENROLL AB 06 {{{ */
+#'
+#' ## MDCR ENROLL AB 06
+#'
+#' Total Medicare Enrollment: Part A and/or Part B Enrollees, by Type of
+#' Entitlement and Demographic Characteristics
+#'
+data(MDCR_ENROLL_AB_06, package = "cms.program.statistics")
+str(MDCR_ENROLL_AB_06)
+
+# /* End of MDCR ENROOL AB 06 }}} */
+#'
+# /* MDCR ENROLL AB 07 {{{ */
+#'
+#' ## MDCR ENROLL AB 07
+#'
+#' Total Medicare Enrollment: Part A and/or Part B Total, Aged, and Disabled
+#' Enrollees, by Area of Residence
+#'
+data(MDCR_ENROLL_AB_07, package = "cms.program.statistics")
+str(MDCR_ENROLL_AB_07)
+
+# /* End of MDCR ENROOL AB 07 }}} */
+#'
+# /* MDCR ENROLL AB 08 {{{ */
+#'
+#' ## MDCR ENROLL AB 08
+#'
+#' Total Medicare Enrollment: Part A and/or Part B Enrollees, by Type of
+#' Entitlement and Area of Residence
+#'
+data(MDCR_ENROLL_AB_08, package = "cms.program.statistics")
+str(MDCR_ENROLL_AB_08)
+
+# /* End of MDCR ENROOL AB 08 }}} */
 #'
 # /* Provider Taxonomy {{{ */
 #'
@@ -206,3 +264,18 @@ help("PROVIDER_TAXONOMY", package = "cms.program.statistics")
 str(PROVIDER_TAXONOMY, width = 80, strict.width = "cut")
 
 # /* End of Provider Taxonomy }}} */
+#'
+# /* Places of Service {{{ */
+#'
+#' # Places of Services
+#'
+#' # Place of Service Code Set
+#'
+#' Two digit codes associated with places of services.  Per the CMS website
+#' https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set.html
+#' "These codes should be used on professional claims to specify the entity
+#' where service(s) were rendered."
+#'
+data("PLACE_OF_SERVICE", package = "cms.program.statistics")
+str(PLACE_OF_SERVICE)
+# /* }}} */
