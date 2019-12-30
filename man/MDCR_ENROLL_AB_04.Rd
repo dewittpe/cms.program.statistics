@@ -17,4 +17,7 @@ Total Medicare Enrollment:  Part A and/or Part B Enrollees, by Age Group
 \details{
 NOTES:  The enrollment counts are determined using a person-year methodology.  Numbers and percentages may not add to totals because of rounding.
 }
+\seealso{
+\code{vignette("program-statistics", package = "cms.program.statistics")}
+}
 \keyword{datasets}

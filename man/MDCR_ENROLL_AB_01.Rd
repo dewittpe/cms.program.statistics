@@ -12,9 +12,12 @@ Centers for Medicare & Medicaid Services, Office of Enterprise Data and Analytic
 MDCR_ENROLL_AB_01
 }
 \description{
-Total Medicare Enrollment:  Total, Original Medicare, and Medicare Advantage and Other Health Plan Enrollment
+Total Medicare Enrollment
 }
-\details{
-NOTES:  The enrollment counts are determined using a person-year methodology.  Numbers and percentages may not add to totals because of rounding.
+\note{
+The enrollment counts are determined using a person-year methodology.  Numbers and percentages may not add to totals because of rounding.
+}
+\seealso{
+\code{vignette("program-statistics", package = "cms.program.statistics")}
 }
 \keyword{datasets}

@@ -7,4 +7,6 @@
 #'
 #' @source Centers for Medicare & Medicaid Services, Office of Enterprise Data and Analytics, CMS Chronic Conditions Data Warehouse.
 #'
+#' @seealso \code{vignette("program-statistics", package = "cms.program.statistics")}
+#'
 "MDCR_ENROLL_AB_07"

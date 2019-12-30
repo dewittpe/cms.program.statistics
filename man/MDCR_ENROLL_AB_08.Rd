@@ -19,4 +19,7 @@ NOTES:  The enrollment counts are determined using a person-year methodology.  N
 
 There are some NA values in this data set.  These NA values are associated with counts between 1 and 10 have been suppressed because of CMS rules to protect the privacy of beneficiaries, or have been cross-suppressed to prevent the recalculation of suppressed counts between 1 and 10.
 }
+\seealso{
+\code{vignette("program-statistics", package = "cms.program.statistics")}
+}
 \keyword{datasets}
